@@ -2,9 +2,15 @@ package com.tictac.game;
 
 import static com.tictac.game.TicTacConstants.*;
 
+/**
+ * This class controls all the operations in this program
+ * 
+ * @author pandiyaraja
+ * 
+ */
 public class TicTacControl {
 	public TicTacData tdata = new TicTacData();
-	public String[][] array = new String[ROW][COL];
+	public char[][] array = new char[ROW][COL];
 
 	public TicTacControl() {
 		for (int i = 0; i < ROW; i++) {
@@ -15,7 +21,10 @@ public class TicTacControl {
 		tdata = new TicTacData();
 		tdata.setArray(array);
 	}
-
+	
+	/**
+	 * This method sets new array value and count value at new game starts.
+	 */
 	private void newData() {
 		for (int i = 0; i < ROW; i++) {
 			for (int j = 0; j < COL; j++) {
@@ -26,11 +35,18 @@ public class TicTacControl {
 		tdata.setCOUNT(ZERO);
 	}
 
+	/**
+	 * This method checks that each and every row, column, diagonals to check
+	 * all are equal. if a row has a same value or column has a same value
+	 * diagonals has a same value, it will return
+	 * 
+	 * @return status
+	 */
 	private boolean gameStatus() {
 
 		int j = 0;
 		boolean flag = false;
-		String statusArray[][] = new String[ROW][COL];
+		char statusArray[][] = new char[ROW][COL];
 		statusArray = tdata.getArray();
 		for (int i = 0; i < ROW; i++) {
 			if (statusArray[i][j] == statusArray[i][j + 1]
@@ -102,16 +118,18 @@ public class TicTacControl {
 
 	private void display() {
 
-		String[][] rarray = tdata.getArray();
+		char[][] rarray = tdata.getArray();
 		for (int i = 0; i < ROW; i++) {
 			for (int j = 0; j < COL; j++) {
 				System.out.print(rarray[i][j]);
-				System.out.print(" ");
 			}
 			System.out.println();
 		}
 	}
 
+	/**
+	 * This method controls all the moves in this program
+	 */
 	public void play() {
 		boolean status = false;
 		boolean move = false;
@@ -135,7 +153,7 @@ public class TicTacControl {
 
 					if (tdata.getPalyer().equalsIgnoreCase(COMPUTER)) {
 						System.out.println("computer");
-						tdata.setCOUNT(i);
+						tdata.setCOUNT(ONE);
 						tm.gameInput(tdata);
 						tdata.setPalyer(USER);
 						display();
@@ -202,7 +220,6 @@ public class TicTacControl {
 					if (tdata.getPalyer().equalsIgnoreCase(COMPUTER)) {
 						tdata.setCOUNT(i);
 						tm.gameInput(tdata);
-
 						display();
 						status = gameStatus();
 						if (status) {
@@ -213,7 +230,6 @@ public class TicTacControl {
 					} else {
 						tdata.setCOUNT(i);
 						tm.userInput(tdata);
-
 						status = gameStatus();
 						if (status) {
 
@@ -231,7 +247,6 @@ public class TicTacControl {
 					if (tdata.getPalyer().equalsIgnoreCase(COMPUTER)) {
 						tdata.setCOUNT(i);
 						tm.gameInput(tdata);
-
 						display();
 						status = gameStatus();
 						if (status) {
@@ -344,5 +359,6 @@ public class TicTacControl {
 				}
 			}
 		} while (status);
-	}
+		
+	}	
 }

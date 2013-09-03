@@ -4,7 +4,7 @@ import static com.tictac.game.TicTacConstants.*;
 
 public class TicTacData {
 	private int COUNT;
-	private String[][] array = new String[ROW][COL];
+	private char[][] array = new char[ROW][COL];
 	boolean move;
 	String palyer;
 
@@ -16,11 +16,11 @@ public class TicTacData {
 		COUNT = cOUNT;
 	}
 
-	public String[][] getArray() {
+	public char[][] getArray() {
 		return array;
 	}
 
-	public void setArray(String[][] array) {
+	public void setArray(char[][] array) {
 		this.array = array;
 	}
 
