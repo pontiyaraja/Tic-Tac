@@ -2,13 +2,11 @@ This program for Tic-Tac-Toe game
 here is the link
 https://gist.github.com/pontiyaraja/5dcfe62def6dc1a6b064
 
-I have Used string in this program, and i used Scanner to read data from console window(read user input).
-
 Sample input format
 
-x x c
-o x x
-x x x
+xxc
+oxx
+xxx
 
 use space between input data.
 
